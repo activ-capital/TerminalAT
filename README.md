@@ -41,7 +41,7 @@ API `TerminalAtService` обрабатывает операции по пере�
     "service_name": "example_service",
     "action": "check",
     "terminal_id": "12345",
-    "phone_number": "9988776655",
+    "phone_number": "998877665",
     "fio": "Иван И.",
     "oper_id": "123e4567-e89b-12d3-a456-426614174000",
     "transaction_date": "2024-07-25"
