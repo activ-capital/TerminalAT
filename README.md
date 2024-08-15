@@ -52,7 +52,7 @@ http://10.64.20.103:8080/payment_app.at?ACTION=check&OPER_ID=123e4567-e89b-12d3-
 Запрос на оплату (payment) `GET`
 
 ```HTTP
-/payment_app.at?ACTION=payment&AMOUNT=100.50&OPER_ID=123e4567-e89b-12d3-a456-426614174000&PAY_DATE=2024-07-25 14:30:00&SERVICE_NAME=example_service&PHONE_NUMBER=992937870880
+/payment_app.at?ACTION=payment&AMOUNT=100.50&OPER_ID=123e4567-e89b-12d3-a456-426614174000&PAY_DATE=2024-07-25 14:30:00&SERVICE_NAME=example_service&PHONE_NUMBER=examplenumber
 ```
 
 Ответ на запрос на оплату (payment)
