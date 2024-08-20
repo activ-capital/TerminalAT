@@ -59,10 +59,8 @@ http://10.64.20.103:8080/payment_app.at?ACTION=check&OPER_ID=123e4567-e89b-12d3-
 
 ```json
 {
-  "error_code": {
     "code": 202,
     "message": "Перевод зачислен"
-  },
   "payload": {
     "service_name": "example_service",
     "action": "payment",
