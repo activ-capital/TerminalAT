@@ -100,8 +100,10 @@ http://10.64.20.103:8080/payment_app.at?ACTION=check&OPER_ID=123e4567-e89b-12d3-
  Пример строки:
  
  ```plaintext
-OPER_ID=123e4567-e89b-12d3-a456-426614174000&ACTION=payment&AMOUNT=100.50&SERVICE_NAME=example_service
+OPER_ID=123e4567-e89b-12d3-a456-426614174000&ACTION=check&AMOUNT=100.50&SERVICE_NAME=example_service
 ```
+Важно: Подпись будет сгенерирована только на основе полей OPER_ID, ACTION, AMOUNT, SERVICE_NAME. Остальные поля, такие как PAY_DATE и PHONE_NUMBER, в подпись не включаются.
+
 2. Генерация подписи: Используйте приватный ключ для подписания строки запроса. Подпись создаётся с использованием алгоритма HMAC-SHA256.
  Заголовки запроса:
 
