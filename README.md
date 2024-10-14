@@ -109,9 +109,11 @@ OPER_ID=123e4567-e89b-12d3-a456-426614174000&ACTION=payment&AMOUNT=100.50&SERVIC
 	•	X-Signature: подпись, сгенерированная с помощью приватного ключа клиента.
 ### Пример запроса:
 ```http
-GET /payment_app.at?OPER_ID=123e4567-e89b-12d3-a456-426614174000&ACTION=payment&AMOUNT=100.50&SERVICE_NAME=example_service HTTP/1.1
+GET /payment_app.at?ACTION=check&OPER_ID=123e4567-e89b-12d3-a456-426614174000&PAY_DATE=2024-07-25%2014:30:00&SERVICE_NAME=example_service&PHONE_NUMBER=992937870880 HTTP/1.1
 Host: example.com
-X-Public-Key: -----BEGIN PUBLIC KEY-----<ваш публичный ключ>-----END PUBLIC KEY-----
+X-Public-Key: -----BEGIN PUBLIC KEY-----
+<ваш публичный ключ>
+-----END PUBLIC KEY-----
 X-Signature: <сгенерированная подпись>
 ```
 
