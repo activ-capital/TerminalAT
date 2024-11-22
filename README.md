@@ -132,13 +132,13 @@ import (
     "encoding/base64"
 )
 func main() {
+	privateKeyPath := "internal/configs/oriyonbank/private_key.pem"
+	secretKey, err := loadSecretKey(privateKeyPath)
+
 	message := fmt.Sprintf("OPER_ID=%s&ACTION=%s&SERVICE_NAME=%s&PHONE_NUMBER=%s", operID, action, serviceName, phoneNumber)
 
 	// Создаём подпись
 	signature, err := createHMACSignature(secretKey, message)
-	if err != nil {
-		log.Fatalf("Ошибка создания подписи: %v", err)
-	}
 
 	// Кодируем подпись в Base64
 	signatureBase64 := base64.StdEncoding.EncodeToString(signature)
