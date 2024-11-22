@@ -131,12 +131,42 @@ import (
     "crypto/sha256"
     "encoding/base64"
 )
+func main() {
+	message := fmt.Sprintf("OPER_ID=%s&ACTION=%s&SERVICE_NAME=%s&PHONE_NUMBER=%s", operID, action, serviceName, phoneNumber)
 
-func GenerateHMACSignature(message, secret string) string {
-    h := hmac.New(sha256.New, []byte(secret))
-    h.Write([]byte(message))
-    return base64.StdEncoding.EncodeToString(h.Sum(nil))
+	// Создаём подпись
+	signature, err := createHMACSignature(secretKey, message)
+	if err != nil {
+		log.Fatalf("Ошибка создания подписи: %v", err)
+	}
+
+	// Кодируем подпись в Base64
+	signatureBase64 := base64.StdEncoding.EncodeToString(signature)
+	fmt.Printf("Подпись (Base64): %s\n", signatureBase64)
 }
+
+// Функция для создания HMAC-SHA256 подписи
+func createHMACSignature(secretKey []byte, message string) ([]byte, error) {
+	h := hmac.New(sha256.New, secretKey)
+	h.Write([]byte(message))
+	return h.Sum(nil), nil
+}
+
+// Функция для загрузки приватного ключа
+func loadSecretKey(path string) ([]byte, error) {
+	data, err := ioutil.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("не удалось прочитать файл: %v", err)
+	}
+
+	block, _ := pem.Decode(data)
+	if block == nil || block.Type != "PRIVATE KEY" {
+		return nil, fmt.Errorf("неправильный формат ключа")
+	}
+
+	return block.Bytes, nil
+}
+
 ```
 ## Пример строки для подписи:
 ```plaintext
