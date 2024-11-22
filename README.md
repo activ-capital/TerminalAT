@@ -133,8 +133,11 @@ import (
 )
 func main() {
 	privateKeyPath := "privateKeyPath"
+
+	// Загрузка секретного ключа из указанного файла
 	secretKey, err := loadSecretKey(privateKeyPath)
 
+	// Формирование сообщения, которое будет подписано
 	message := fmt.Sprintf("OPER_ID=%s&ACTION=%s&SERVICE_NAME=%s&PHONE_NUMBER=%s", operID, action, serviceName, phoneNumber)
 
 	// Создаём подпись
