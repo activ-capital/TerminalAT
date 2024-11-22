@@ -122,9 +122,12 @@ X-Signature: <сгенерированная подпись>
 ### Пример кода для генерации подписи (Go):
 ```GO
 func GenerateHMACSignature(message, secret string) string {
+    // Создаем HMAC-SHA256
     h := hmac.New(sha256.New, []byte(secret))
     h.Write([]byte(message))
-    return hex.EncodeToString(h.Sum(nil))
+
+    // Возвращаем подпись в формате Base64
+    return base64.StdEncoding.EncodeToString(h.Sum(nil))
 }
 ```
 ## Пример строки для подписи:
@@ -135,6 +138,10 @@ OPER_ID=123e4567-e89b-12d3-a456-426614174000&ACTION=check&SERVICE_NAME=example_s
 ```plaintext
 Подпись (Base64): mFz5T2yA1y3YhjOY+pLlfgfMT9k2Oy3wJ/nYRw9y1uo=
 ```
+### Процесс генерации подписи
+## HMAC-SHA256: Подпись генерируется с использованием этого алгоритма и вашего секретного ключа.
+## Base64: Результат кодируется в формате Base64 и передаётся в заголовке X-Signature.
+
 ### Ошибки авторизации:
 	•	401: Unauthorized – Неверная подпись или отсутствует публичный ключ.
 	•	400: Bad Request – Отсутствуют обязательные параметры запроса.
