@@ -132,7 +132,7 @@ import (
     "encoding/base64"
 )
 func main() {
-	privateKeyPath := "internal/configs/oriyonbank/private_key.pem"
+	privateKeyPath := "privateKeyPath"
 	secretKey, err := loadSecretKey(privateKeyPath)
 
 	message := fmt.Sprintf("OPER_ID=%s&ACTION=%s&SERVICE_NAME=%s&PHONE_NUMBER=%s", operID, action, serviceName, phoneNumber)
