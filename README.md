@@ -126,12 +126,15 @@ X-Signature: <сгенерированная подпись>
 
 ### Пример кода для генерации подписи (Go):
 ```GO
+import (
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/base64"
+)
+
 func GenerateHMACSignature(message, secret string) string {
-    // Создаем HMAC-SHA256
     h := hmac.New(sha256.New, []byte(secret))
     h.Write([]byte(message))
-
-    // Возвращаем подпись в формате Base64
     return base64.StdEncoding.EncodeToString(h.Sum(nil))
 }
 ```
