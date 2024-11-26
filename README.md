@@ -26,7 +26,7 @@ API `TerminalAtService` обрабатывает операции по пере�
 **Запрос на проверку (check)** `GET`
 
 ```HTTP
-http://10.64.20.103:8080/payment_app.at?ACTION=check&OPER_ID=123e4567-e89b-12d3-a456-426614174000&PAY_DATE=2024-07-25 14:30:00&SERVICE_NAME=example_service&PHONE_NUMBER=examplenumber&TERMINAL_ID=terminal123
+/payment_app.at?ACTION=check&OPER_ID=123e4567-e89b-12d3-a456-426614174000&PAY_DATE=2024-07-25 14:30:00&SERVICE_NAME=example_service&PHONE_NUMBER=examplenumber&TERMINAL_ID=terminal123
 ```
 
 Ответ на запрос на проверку (check)
