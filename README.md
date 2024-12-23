@@ -188,7 +188,6 @@ OPER_ID=123e4567-e89b-12d3-a456-426614174000&ACTION=check&SERVICE_NAME=example_s
 	•	107: Дубликат запроса оплаты
 	•	401: Public key is missing
 	•	402: Не достаточно средств
-	•	400: StatusBadRequest
 	•	202: Перевод зачислен
 	•	302: Получатель найден
  
