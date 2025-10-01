@@ -98,7 +98,7 @@ API `TerminalAtService` обрабатывает операции по пере�
   "message": "Дубликат запроса оплаты",
   "payload": {
     "oper_id": "abc123",
-    "status": "failed" // success // pendingTerminal
+    "status": "failed" // success / pendingTerminal
   }
 }
 ```
