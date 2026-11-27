@@ -32,16 +32,7 @@ API `TerminalAtService` обрабатывает операции по пере�
 При `IS_COMMERCIAL=true` сервис отправляет в Colvir **два** domestic-платежа:
 
 1. **97%** суммы — на IBAN клиента (как обычный DPYSTD).
-2. **3%** суммы — на налоговый счёт (`colvir.commercialTaxAccountIban`, по умолчанию `26202972090810638372`), назначение платежа вида:  
-   `Комиссия в размере 3% от p2p коммерческого перевода и (ID перевода) {OPER_ID}`.
-
-Флаг сохраняется в БД: **`payment_confirm.is_commercial`**.
-
-| `is_commercial` | `status` | Смысл |
-|-----------------|----------|--------|
-| `false` | `success` | Обычный перевод 100% прошёл |
-| `true` | `success` | Оба Colvir прошли (клиент 97% + налог 3%) |
-| `true` | `failed` / `pendingTerminal` | Коммерческий перевод ещё не завершён или упал |
+2. **3%** суммы — на налоговый счёт 
 
 **Важно:** в строку HMAC-подписи `IS_COMMERCIAL` **не** входит (как и `AMOUNT`, `PAY_DATE`, `TERMINAL_ID`). Подписываются только `OPER_ID`, `ACTION`, `SERVICE_NAME`, `PHONE_NUMBER`.
 
